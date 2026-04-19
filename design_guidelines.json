@@ -1,0 +1,149 @@
+{
+  "theme": "dark",
+  "archetype": "Swiss & High-Contrast (Monochrome Adaptation)",
+  "design_philosophy": "Pure monochrome black and white. Vibrant visual impact achieved purely through kinetic typography, extreme contrast, glassmorphism, luminous white glows, motion, and silver/chrome metallic depth. No colors. Resolve tension by embracing greyscale depth.",
+  "colors": {
+    "background": {
+      "primary": "#000000",
+      "secondary": "#0A0A0A",
+      "tertiary": "#121212",
+      "glass": "rgba(10, 10, 10, 0.6)"
+    },
+    "text": {
+      "primary": "#FFFFFF",
+      "secondary": "#A1A1AA",
+      "muted": "#52525B",
+      "inverse": "#000000"
+    },
+    "border": {
+      "default": "rgba(255, 255, 255, 0.1)",
+      "hover": "rgba(255, 255, 255, 0.3)",
+      "focus": "rgba(255, 255, 255, 0.8)"
+    },
+    "accent": {
+      "glow": "rgba(255, 255, 255, 0.15)",
+      "pure": "#FFFFFF"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cabinet Grotesk, sans-serif",
+      "body": "Manrope, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "scales": {
+      "h1": "text-5xl md:text-7xl lg:text-[8vw] leading-none tracking-tighter uppercase font-black",
+      "h2": "text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight font-bold",
+      "h3": "text-2xl md:text-3xl tracking-tight font-medium",
+      "body": "text-base md:text-lg leading-relaxed text-zinc-400 font-light",
+      "overline": "text-xs tracking-[0.2em] uppercase text-zinc-500 font-bold"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24",
+    "section_gap": "py-24 md:py-32 lg:py-48",
+    "grid": "grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8",
+    "bento_spacing": "gap-4 md:gap-6"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-white text-black rounded-full px-8 py-4 font-semibold hover:scale-105 transition-transform duration-300 relative overflow-hidden group shadow-[0_0_30px_rgba(255,255,255,0.2)]",
+      "secondary": "bg-transparent text-white border border-white/20 rounded-full px-8 py-4 font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 backdrop-blur-md",
+      "magnetic": "true (use framer-motion to create magnetic pull effect on hover)"
+    },
+    "cards": {
+      "glass": "bg-white/[0.02] border border-white/[0.05] backdrop-blur-2xl rounded-2xl p-8 hover:bg-white/[0.04] hover:border-white/[0.1] transition-all",
+      "flat": "bg-[#0A0A0A] border border-zinc-900 p-8 md:p-12 hover:border-zinc-800 transition-colors"
+    },
+    "inputs": {
+      "minimal": "bg-transparent border-b border-white/20 text-white py-4 w-full focus:outline-none focus:border-white transition-colors placeholder:text-zinc-600 rounded-none text-lg"
+    }
+  },
+  "motion_and_interactions": {
+    "cursor": "Custom glowing white dot cursor with mix-blend-difference, expanding when hovering over text or interactive elements.",
+    "scroll": "Smooth scrolling mandatory (Lenis recommended).",
+    "reveals": "Staggered fade-up and subtle scale-in for images and typography using Framer Motion. Elements appear from bottom.",
+    "parallax": "Background elements, large typography, and images moving at different speeds than scroll.",
+    "kinetic_typography": "Headlines animate letter-by-letter or word-by-word on entry. Endless marquee scrolling for text banners. Distortion hover effects on large text if possible."
+  },
+  "media": {
+    "images": [
+      {
+        "category": "hero_background",
+        "url": "https://images.unsplash.com/photo-1611856132849-844daa7ec58e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGZsdWlkJTIwbW9ub2Nocm9tZSUyMDNkfGVufDB8fHxibGFja19hbmRfd2hpdGV8MTc3NjU3NDg3NHww&ixlib=rb-4.1.0&q=85",
+        "description": "Abstract white and black fluid painting. Apply opacity 0.2 to 0.4 as hero background overlay to create a 3D metallic liquid feel behind text."
+      },
+      {
+        "category": "portfolio_1",
+        "url": "https://images.pexels.com/photos/8408538/pexels-photo-8408538.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Modern smartphone showcasing a website mockup."
+      },
+      {
+        "category": "portfolio_2",
+        "url": "https://images.unsplash.com/photo-1592839961515-64c68091f712?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1ODR8MHwxfHNlYXJjaHwzfHxtaW5pbWFsaXN0JTIwd2Vic2l0ZSUyMGludGVyZmFjZSUyMG1vY2t1cHxlbnwwfHx8YmxhY2tfYW5kX3doaXRlfDE3NzY1NzQ4NzR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist black laptop mockup on white textile."
+      },
+      {
+        "category": "process_wireframe",
+        "url": "https://images.pexels.com/photos/196645/pexels-photo-196645.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Close up of wireframe sketch for process section."
+      },
+      {
+        "category": "why_us_abstract",
+        "url": "https://images.pexels.com/photos/3137072/pexels-photo-3137072.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Geometric architectural structure."
+      },
+      {
+        "category": "services_hover_bg",
+        "url": "https://images.unsplash.com/photo-1590503002120-e14b164def47?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDJ8MHwxfHNlYXJjaHwyfHxhYnN0cmFjdCUyMGZsdWlkJTIwbW9ub2Nocm9tZSUyMDNkfGVufDB8fHxibGFja19hbmRfd2hpdGV8MTc3NjU3NDg3NHww&ixlib=rb-4.1.0&q=85",
+        "description": "Black and white abstract fluid painting for service card hover reveals."
+      }
+    ],
+    "icons": "lucide-react, with 1px to 1.5px stroke-width for ultra-minimalist clean tech feel."
+  },
+  "sections_requirements": [
+    {
+      "name": "Navigation & Header",
+      "requirements": "Fixed/Sticky. Glassmorphism dark background. Logo is placeholder text 'Spynad'. Magnetic links. Must contain 'Get Started' CTA."
+    },
+    {
+      "name": "Hero",
+      "requirements": "Immersive full-screen. Kinetic typography for 'We design websites that don't just look good — they convert'. Glowing primary CTA button. Magnetic secondary CTA. Abstract 3D/fluid background layered behind."
+    },
+    {
+      "name": "Services",
+      "requirements": "Interactive list, accordion, or large horizontal rows. On hover, reveal abstract monochrome background images within the row container, text shifts slightly, cursor interacts."
+    },
+    {
+      "name": "Why Spynad",
+      "requirements": "Asymmetrical layout using Mode A 'Tetris' grid. High contrast metric numbers and abstract geometric image. Lots of negative space."
+    },
+    {
+      "name": "Portfolio",
+      "requirements": "Dynamic grid (e.g. alternating full-width and half-width). Large thumbnails that scale up slowly on hover. Custom cursor text 'View Project' inside circle when hovering images."
+    },
+    {
+      "name": "Process",
+      "requirements": "Step-by-step vertical animated timeline (Discovery -> Launch). A scroll-triggered svg line connecting them."
+    },
+    {
+      "name": "Branding & Creatives",
+      "requirements": "Massive infinite marquee (kinetic text) spanning the screen width. High contrast outline typography (e.g., text-transparent stroke-white)."
+    },
+    {
+      "name": "Testimonials",
+      "requirements": "Morphing/sliding large text quotes. No traditional boxes. Giant typography fading in and out, minimal attribution."
+    },
+    {
+      "name": "Final CTA & Contact",
+      "requirements": "Massive kinetic text 'Let's build something people can't ignore'. Minimalist form with thin bottom borders. Lead capture form posting to backend. Glow submit button."
+    },
+    {
+      "name": "Admin Panel",
+      "requirements": "Hidden route '/admin'. Clean, brutalist layout. Login screen followed by dashboard table using Shadcn Table. Pitch black background, pure white text. Data display of contact submissions."
+    }
+  ],
+  "testing": {
+    "attributes": "All interactive elements MUST have `data-testid` (e.g., `data-testid=\"hero-cta-button\"`, `data-testid=\"contact-form-submit\"`)."
+  }
+}
