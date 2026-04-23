@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
+  { label: "Home", href: "/" },
   { label: "Services", href: "#services" },
   { label: "Work", href: "#portfolio" },
   { label: "Process", href: "#process" },
@@ -29,10 +30,9 @@ export default function Navigation() {
       }`}
       data-testid="main-nav"
     >
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16 h-20 flex items-center justify-between">
-        <a href="#top" className="group flex items-center gap-2" data-testid="logo">
-          <div className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center font-display font-black text-lg group-hover:scale-110 transition-transform">S</div>
-          <span className="font-display font-bold text-2xl tracking-tight">spynad</span>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 h-20 flex items-center justify-between">
+        <a href="/" className="group flex items-center" data-testid="logo">
+          <img src="/SPYNAD logo.png" alt="Spynad logo" className="w-28 h-28 md:w-32 md:h-32 object-contain transition-transform" />
         </a>
 
         <nav className="hidden md:flex items-center gap-10">

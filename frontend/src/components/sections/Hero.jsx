@@ -3,10 +3,9 @@ import { ArrowRight, Play } from "lucide-react";
 import MagneticButton from "@/components/MagneticButton";
 
 const HEADLINE = [
-  ["We", "design"],
   ["websites", "that"],
   ["don't", "just"],
-  ["look", "good —"],
+  ["look", "good -"],
   ["they", "convert."],
 ];
 
@@ -26,7 +25,7 @@ export default function Hero() {
       <div className="beam top-[20%] left-[10%] w-[400px] h-[400px] bg-white/10" />
       <div className="beam bottom-[10%] right-[5%] w-[500px] h-[500px] bg-white/5" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <motion.p
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.8 }}
           className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold mb-8 font-mono"

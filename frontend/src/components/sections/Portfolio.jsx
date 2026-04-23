@@ -46,7 +46,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="relative py-24 md:py-40 bg-black" data-testid="portfolio-section">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 03 — Selected Work</p>
@@ -74,7 +74,7 @@ export default function Portfolio() {
               data-cursor="hover"
             >
               <div
-                className="absolute inset-0 bg-cover bg-center scale-105 group-hover:scale-110 transition-transform duration-[1200ms] ease-out"
+                className="absolute inset-0 bg-cover bg-center scale-105 group-hover:scale-110 transition-transform duration-&lsqb;1200ms&rsqb; ease-out"
                 style={{ backgroundImage: `url(${p.image})`, filter: "grayscale(1) contrast(1.05)" }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />

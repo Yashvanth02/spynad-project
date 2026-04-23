@@ -11,7 +11,7 @@ const pillars = [
 export default function WhySpynad() {
   return (
     <section className="relative py-24 md:py-40 bg-black" data-testid="why-section">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
           <div className="md:col-span-5 md:sticky md:top-32 self-start">
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 02 — Why Spynad</p>

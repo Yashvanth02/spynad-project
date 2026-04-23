@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Check } from "lucide-react";
-import { api, formatApiErrorDetail } from "@/lib/api";
 import { toast } from "sonner";
 import MagneticButton from "@/components/MagneticButton";
 
@@ -10,28 +9,35 @@ const BUDGETS = ["< $2k", "$2k–$5k", "$5k–$15k", "$15k+", "Not sure yet"];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", project_type: PROJECT_TYPES[0], budget: BUDGETS[2], message: "" });
-  const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
-  const submit = async (e) => {
+  const submit = (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
       toast.error("Please fill in name, email & message.");
       return;
     }
-    setSubmitting(true);
-    try {
-      await api.post("/contact", form);
-      setDone(true);
-      toast.success("Message sent. We'll be in touch within 24 hours.");
-      setForm({ name: "", email: "", project_type: PROJECT_TYPES[0], budget: BUDGETS[2], message: "" });
-    } catch (err) {
-      toast.error(formatApiErrorDetail(err.response?.data?.detail) || "Something went wrong.");
-    } finally {
-      setSubmitting(false);
-    }
+
+    // Construct WhatsApp message
+    const whatsappMessage = `Hi, I'm ${form.name}. Email: ${form.email}. Project: ${form.project_type}. Budget: ${form.budget}. Message: ${form.message}`;
+    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`; // Replace 1234567890 with your actual WhatsApp number
+
+    // Construct email
+    const emailSubject = `New Project Inquiry from ${form.name}`;
+    const emailBody = `Name: ${form.name}\nEmail: ${form.email}\nProject Type: ${form.project_type}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`;
+    const emailUrl = `mailto:hello@spynad.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+    // Open WhatsApp
+    window.open(whatsappUrl, '_blank');
+
+    // Open email client
+    window.open(emailUrl, '_blank');
+
+    setDone(true);
+    toast.success("Opening WhatsApp and email. We'll be in touch!");
+    setForm({ name: "", email: "", project_type: PROJECT_TYPES[0], budget: BUDGETS[2], message: "" });
   };
 
   return (
@@ -39,7 +45,7 @@ export default function Contact() {
       <div className="absolute inset-0 noise-layer" />
       <div className="beam top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-white/5" />
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-6">/ 07 — Final call</p>
         <motion.h2
           initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -98,12 +104,12 @@ export default function Contact() {
 
             <MagneticButton
               type="submit"
-              disabled={submitting || done}
+              disabled={done}
               data-testid="contact-submit"
               className="glow-btn bg-white text-black rounded-full px-10 py-5 font-semibold text-base disabled:opacity-60"
             >
-              {done ? "Sent ✓" : submitting ? "Sending..." : "Send the brief"}
-              {!done && !submitting && <ArrowRight size={18} />}
+              {done ? "Sent ✓" : "Send the brief"}
+              {!done && <ArrowRight size={18} />}
             </MagneticButton>
           </form>
         </div>

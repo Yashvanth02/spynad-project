@@ -16,7 +16,7 @@ export default function Process() {
 
   return (
     <section id="process" ref={ref} className="relative py-24 md:py-40 bg-black" data-testid="process-section">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="mb-16 md:mb-24">
           <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 04 — Process</p>
           <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.9]">

@@ -13,7 +13,7 @@ export default function Services() {
   const [hover, setHover] = useState(null);
   return (
     <section id="services" className="relative py-24 md:py-40 bg-black" data-testid="services-section">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 lg:px-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 01 — Services</p>
