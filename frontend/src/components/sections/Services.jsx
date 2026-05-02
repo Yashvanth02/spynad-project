@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 const services = [
   {
@@ -185,6 +185,15 @@ export default function Services() {
               aria-modal="true"
               aria-labelledby="service-modal-title"
             >
+              <button
+                type="button"
+                onClick={() => setOpen(null)}
+                className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition-colors hover:bg-white hover:text-black"
+                aria-label="Close service details"
+                data-testid="service-modal-close"
+              >
+                <X size={16} />
+              </button>
               <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_32%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_38%)]" />
               <div className="relative grid h-full min-h-0 md:grid-cols-12">
                 <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-white/10 p-6 md:p-8 lg:p-10 flex min-h-0 flex-col gap-8">
