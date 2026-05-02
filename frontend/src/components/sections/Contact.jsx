@@ -1,32 +1,31 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import MagneticButton from "@/components/MagneticButton";
 
-const PROJECT_TYPES = ["Business Website", "eCommerce Store", "Portfolio Website", "Custom Web App", "Branding & Creatives", "Other"];
-const BUDGETS = ["< $2k", "$2k–$5k", "$5k–$15k", "$15k+", "Not sure yet"];
+const PROJECT_TYPES = ["Business Website", "eCommerce Store", "Portfolio Website", "Custom Web App", "Social Media Marketing", "Logo & Poster Design", "Video Production"];
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: "", email: "", project_type: PROJECT_TYPES[0], budget: BUDGETS[2], message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", project_type: PROJECT_TYPES[0], message: "" });
   const [done, setDone] = useState(false);
 
   const update = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const submit = (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
-      toast.error("Please fill in name, email & message.");
+    if (!form.name || !form.email || !form.phone || !form.project_type || !form.message) {
+      toast.error("Please fill in all required fields.");
       return;
     }
 
     // Construct WhatsApp message
-    const whatsappMessage = `Hi, I'm ${form.name}. Email: ${form.email}. Project: ${form.project_type}. Budget: ${form.budget}. Message: ${form.message}`;
+    const whatsappMessage = `Hi, I'm ${form.name}. Email: ${form.email}. Contact number: ${form.phone}. Project: ${form.project_type}. Message: ${form.message}`;
     const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(whatsappMessage)}`; // Replace 1234567890 with your actual WhatsApp number
 
     // Construct email
     const emailSubject = `New Project Inquiry from ${form.name}`;
-    const emailBody = `Name: ${form.name}\nEmail: ${form.email}\nProject Type: ${form.project_type}\nBudget: ${form.budget}\n\nMessage:\n${form.message}`;
+    const emailBody = `Name: ${form.name}\nEmail: ${form.email}\nContact Number: ${form.phone}\nProject Type: ${form.project_type}\n\nMessage:\n${form.message}`;
     const emailUrl = `mailto:hello@spynad.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     // Open WhatsApp
@@ -37,11 +36,11 @@ export default function Contact() {
 
     setDone(true);
     toast.success("Opening WhatsApp and email. We'll be in touch!");
-    setForm({ name: "", email: "", project_type: PROJECT_TYPES[0], budget: BUDGETS[2], message: "" });
+    setForm({ name: "", email: "", phone: "", project_type: PROJECT_TYPES[0], message: "" });
   };
 
   return (
-    <section id="contact" className="relative py-24 md:py-40 bg-black overflow-hidden" data-testid="contact-section">
+    <section id="contact" className="relative py-20 md:py-32 bg-black overflow-hidden" data-testid="contact-section">
       <div className="absolute inset-0 noise-layer" />
       <div className="beam top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-white/5" />
 
@@ -84,16 +83,15 @@ export default function Contact() {
 
             <div className="grid sm:grid-cols-2 gap-8">
               <div>
+                <label className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-mono">Contact number</label>
+                <input type="tel" className="input-line" value={form.phone} onChange={update("phone")} placeholder="+91 98765 43210" data-testid="contact-phone" required />
+              </div>
+              <div className="relative">
                 <label className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-mono">Project type</label>
-                <select className="input-line appearance-none bg-black" value={form.project_type} onChange={update("project_type")} data-testid="contact-project-type">
+                <select className="input-line appearance-none bg-black pr-10" value={form.project_type} onChange={update("project_type")} data-testid="contact-project-type" required>
                   {PROJECT_TYPES.map((t) => <option key={t} value={t} className="bg-black">{t}</option>)}
                 </select>
-              </div>
-              <div>
-                <label className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-mono">Budget</label>
-                <select className="input-line appearance-none bg-black" value={form.budget} onChange={update("budget")} data-testid="contact-budget">
-                  {BUDGETS.map((t) => <option key={t} value={t} className="bg-black">{t}</option>)}
-                </select>
+                <ChevronDown className="pointer-events-none absolute right-0 top-[50%] h-5 w-5 -translate-y-1/2 text-zinc-400" />
               </div>
             </div>
 

@@ -15,9 +15,9 @@ export default function Testimonials() {
   }, []);
 
   return (
-    <section className="relative py-24 md:py-40 bg-black" data-testid="testimonials-section">
+    <section className="relative py-12 md:py-16 bg-black" data-testid="testimonials-section">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
-        <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-10">/ 06 — Voices</p>
+        <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-10">/ 06 — Testimonials</p>
         <div className="relative min-h-[40vh] md:min-h-[55vh] flex flex-col justify-center">
           <AnimatePresence mode="wait">
             <motion.blockquote

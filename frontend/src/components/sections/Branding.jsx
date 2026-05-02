@@ -3,9 +3,9 @@ const ITEMS = ["Logo Design", "Social Creatives", "Video Editing", "Motion Graph
 export default function Branding() {
   const doubled = [...ITEMS, ...ITEMS];
   return (
-    <section className="relative py-24 md:py-32 bg-black overflow-hidden" data-testid="branding-section">
+    <section className="relative py-20 md:py-32 bg-black overflow-hidden" data-testid="branding-section">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 mb-12">
-        <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 05 — Beyond Web</p>
+        <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 06 — Beyond Web</p>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.9]">
             Brand &<br /><span className="text-stroke">creatives.</span>

@@ -73,12 +73,11 @@ export default function Hero() {
               data-testid="hero-cta-secondary"
             >
               <Play size={14} />
-              View Our Work
+              View Projects
             </MagneticButton>
           </div>
         </motion.div>
 
-        {/* scroll hint */}
         <motion.div
           initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2, duration: 1 }}
           className="mt-24 flex items-center gap-4 text-zinc-600 font-mono text-xs tracking-widest"

@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { label: "Home", href: "/" },
+  { label: "Home", href: "#top" },
+  { label: "About Us", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Work", href: "#portfolio" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Projects", href: "#portfolio" },
+  { label: "Contact Us", href: "#contact" },
 ];
 
 export default function Navigation() {
@@ -31,17 +31,21 @@ export default function Navigation() {
       data-testid="main-nav"
     >
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12 h-20 flex items-center justify-between">
-        <a href="/" className="group flex items-center" data-testid="logo">
-          <img src="/SPYNAD logo.png" alt="Spynad logo" className="w-28 h-28 md:w-32 md:h-32 object-contain transition-transform" />
+        <a href="/" className="group flex h-full w-[162px] items-center justify-start overflow-visible" data-testid="logo">
+          <img
+            src="/SPYNAD logo.png"
+            alt="Spynad logo"
+            className="h-[162px] w-[162px] object-contain object-left transition-transform"
+          />
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-11">
           {links.map((l) => (
             <a
               key={l.href}
               href={l.href}
               data-testid={`nav-${l.label.toLowerCase()}`}
-              className="text-sm font-medium text-zinc-300 hover:text-white transition-colors relative group"
+              className="text-base lg:text-[17px] font-semibold text-zinc-300 hover:text-white transition-colors relative group"
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 w-0 h-px bg-white group-hover:w-full transition-all duration-300" />
@@ -52,9 +56,9 @@ export default function Navigation() {
         <a
           href="#contact"
           data-testid="nav-cta"
-          className="hidden md:inline-flex items-center gap-2 bg-white text-black rounded-full px-5 py-2.5 text-sm font-semibold hover:scale-[1.03] transition-transform"
+          className="hidden md:inline-flex items-center gap-2 bg-white text-black rounded-full px-7 py-3 text-base font-semibold hover:scale-[1.03] transition-transform"
         >
-          Start a Project
+          Let's Talk
         </a>
 
         <button
@@ -77,7 +81,7 @@ export default function Navigation() {
             data-testid="mobile-nav"
           >
             <div className="flex items-center justify-between p-6">
-              <span className="font-display font-bold text-2xl">spynad</span>
+              <span className="font-display font-bold text-3xl">spynad</span>
               <button onClick={() => setOpen(false)} data-testid="nav-menu-close" aria-label="Close menu">
                 <X size={22} />
               </button>
@@ -89,7 +93,7 @@ export default function Navigation() {
                 </a>
               ))}
               <a href="#contact" onClick={() => setOpen(false)} className="mt-8 bg-white text-black rounded-full py-4 text-center font-semibold">
-                Start a Project
+                Let's Talk
               </a>
             </div>
           </motion.div>

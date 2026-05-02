@@ -5,51 +5,47 @@ import { ArrowUpRight, X } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Monolith Studio",
-    category: "Brand Site · Architecture",
-    image: "https://images.unsplash.com/photo-1592839961515-64c68091f712?w=1600&q=80",
+    title: "Unavo",
+    category: "Food · Cloud Kitchen",
+    image: "/unavo.png",
     year: "2025",
-    span: "md:col-span-8",
-    about: "Editorial, parallax-driven portfolio for a boutique architecture firm. Custom CMS + 3D hero.",
+    span: "md:col-span-6",
+    about: "Vibrant cloud kitchen brand launch with menu storytelling, conversion-first ordering UX, and rapid consumer appeal.",
   },
   {
     id: 2,
-    title: "Halo Cosmetics",
-    category: "eCommerce · Beauty",
-    image: "https://images.unsplash.com/photo-1631214524020-3c8167274cf5?w=1200&q=80",
+    title: "Reelio",
+    category: "Video Production · Creative",
+    image: "/reelio.png",
     year: "2025",
-    span: "md:col-span-4",
-    about: "Headless Shopify storefront. Animated product stories & checkout optimization boosted CVR +38%.",
+    span: "md:col-span-6",
+    about: "Bold production studio showcase with cinematic portfolio presentation and motion-led brand positioning.",
   },
-  {
-    id: 3,
-    title: "Field & Foundry",
-    category: "Business Site · B2B",
-    image: "https://images.unsplash.com/photo-1517292987719-0369a794ec0f?w=1200&q=80",
-    year: "2024",
-    span: "md:col-span-5",
-    about: "Lead-gen engine for a construction tech firm. 3x pipeline in 90 days post-launch.",
-  },
-  {
-    id: 4,
-    title: "Nocturne OS",
-    category: "SaaS · Dashboard",
-    image: "https://images.pexels.com/photos/8408538/pexels-photo-8408538.jpeg?auto=compress&w=1600&q=80",
-    year: "2025",
-    span: "md:col-span-7",
-    about: "Full-stack analytics dashboard with real-time data, RBAC, and motion-driven onboarding.",
-  },
+];
+
+const collaborators = [
+  "Emerald Associates",
+  "Reelio",
+  "Unavo",
+  "Teenu Cabs",
+  "Foreign Language Club",
+  "Klutch Fitness",
+  "Aries Gym",
+  "Tiron World",
+  "Qutemail",
+  "Bartr",
 ];
 
 export default function Portfolio() {
   const [open, setOpen] = useState(null);
+  const collaboratorLoop = [...collaborators, ...collaborators];
 
   return (
-    <section id="portfolio" className="relative py-24 md:py-40 bg-black" data-testid="portfolio-section">
+    <section id="portfolio" className="relative py-5 md:py-7 bg-black" data-testid="portfolio-section">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-2">
           <div>
-            <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 03 — Selected Work</p>
+            <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 05 — Projects</p>
             <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.9]">
               Recent<br />
               <span className="text-stroke">ship-outs.</span>
@@ -60,7 +56,7 @@ export default function Portfolio() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 gap-3 mt-6">
           {projects.map((p, i) => (
             <motion.button
               key={p.id}
@@ -69,32 +65,59 @@ export default function Portfolio() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.9, delay: i * 0.08 }}
-              className={`group relative col-span-1 ${p.span} aspect-[4/3] md:aspect-[16/10] overflow-hidden rounded-2xl text-left`}
+              className="group relative overflow-hidden rounded-2xl text-left bg-[#080808]"
               data-testid={`portfolio-item-${p.id}`}
               data-cursor="hover"
             >
-              <div
-                className="absolute inset-0 bg-cover bg-center scale-105 group-hover:scale-110 transition-transform duration-&lsqb;1200ms&rsqb; ease-out"
-                style={{ backgroundImage: `url(${p.image})`, filter: "grayscale(1) contrast(1.05)" }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
-              <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                  <span className="text-xs tracking-[0.2em] uppercase text-zinc-400 font-mono">{p.category}</span>
-                  <span className="text-xs font-mono text-zinc-400">{p.year}</span>
+              <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] items-start">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="w-full h-auto object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105 filter grayscale contrast-[1.05] group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
                 </div>
-                <div className="flex justify-between items-end">
-                  <h3 className="font-display font-black text-3xl md:text-5xl tracking-tighter leading-none">{p.title}</h3>
-                  <motion.div
-                    whileHover={{ rotate: 45 }}
-                    className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <ArrowUpRight size={18} />
-                  </motion.div>
+                <div className="relative flex flex-col justify-start items-start bg-black/95 p-6 md:p-8">
+                  <div className="w-full">
+                    <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-5">
+                      <span className="text-xs tracking-[0.2em] uppercase text-zinc-400 font-mono">{p.category}</span>
+                      <span className="text-xs font-mono text-zinc-400">{p.year}</span>
+                    </div>
+                    <div className="flex items-start justify-between gap-4">
+                      <h3 className="font-display font-black text-4xl md:text-5xl tracking-tighter leading-none text-white">{p.title}</h3>
+                      <motion.div
+                        whileHover={{ rotate: 45 }}
+                        className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                      >
+                        <ArrowUpRight size={18} />
+                      </motion.div>
+                    </div>
+                    <p className="mt-5 text-sm md:text-base text-zinc-300 leading-7">
+                      {p.about}
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.button>
           ))}
+        </div>
+
+        <div className="mt-6 md:mt-8 border-y border-white/10 py-4 overflow-hidden" data-testid="collaborations-marquee">
+          <div className="flex items-center justify-between gap-12 mb-8">
+            <p className="text-xs tracking-[0.28em] uppercase text-zinc-500 font-bold font-mono">Our collaborations</p>
+            <div className="hidden md:block h-px flex-1 bg-white/10" />
+          </div>
+          <div className="marquee-track" style={{ animationDirection: "reverse", animationDuration: "34s" }}>
+            {collaboratorLoop.map((name, index) => (
+              <div key={`${name}-${index}`} className="flex items-center gap-12 px-10">
+                <span className="font-display font-black uppercase tracking-tighter text-4xl md:text-6xl lg:text-7xl leading-none whitespace-nowrap text-white">
+                  {name}
+                </span>
+                <span className="h-3 w-3 rounded-full bg-white shrink-0" />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
