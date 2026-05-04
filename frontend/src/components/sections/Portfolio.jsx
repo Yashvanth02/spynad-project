@@ -38,6 +38,7 @@ const collaborators = [
 
 export default function Portfolio() {
   const [open, setOpen] = useState(null);
+  const [hover, setHover] = useState(null);
   const collaboratorLoop = [...collaborators, ...collaborators];
 
   return (
@@ -61,6 +62,11 @@ export default function Portfolio() {
             <motion.button
               key={p.id}
               onClick={() => setOpen(p)}
+              onMouseEnter={() => setHover(i)}
+              onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)}
+              onBlur={() => setHover(null)}
+              onTouchStart={() => setHover(i)}
               initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -71,12 +77,21 @@ export default function Portfolio() {
             >
               <div className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr] items-start">
                 <div className="relative overflow-hidden">
-                  <img
+                  <motion.img
                     src={p.image}
                     alt={p.title}
-                    className="w-full h-auto object-contain filter grayscale saturate-0 contrast-[1.05] transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:saturate-125 group-hover:contrast-100"
+                    className="w-full h-auto object-contain"
+                    animate={{
+                      scale: hover === i ? 1.05 : 1,
+                      filter: hover === i ? "grayscale(0) contrast(1) saturate(1.35)" : "grayscale(1) contrast(1.05) saturate(0)",
+                    }}
+                    transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
-                  <div className="absolute inset-0 bg-black/30 transition-colors duration-500 group-hover:bg-black/0" />
+                  <motion.div
+                    className="absolute inset-0 bg-black"
+                    animate={{ opacity: hover === i ? 0 : 0.3 }}
+                    transition={{ duration: 0.5 }}
+                  />
                 </div>
                 <div className="relative flex flex-col justify-start items-start bg-black/95 p-5 sm:p-6 md:p-8">
                   <div className="w-full">
