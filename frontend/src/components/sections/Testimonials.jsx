@@ -2,9 +2,21 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const quotes = [
-  { q: "Spynad shipped our site in four weeks flat. Conversions are up 42% and the design still stops people in their tracks.", a: "Priya K.", r: "Founder, Aurelia Skincare" },
-  { q: "We hired them for a microsite. We ended up with a brand system that completely redefined how we show up online.", a: "Marcus R.", r: "CMO, Field & Foundry" },
-  { q: "A rare studio that understands code, motion and commerce equally. Zero compromise.", a: "Devi S.", r: "Head of Product, Nocturne OS" },
+  {
+    q: "Synad completely transformed how we approach our website experience. The team didn't just deliver a sleek design - they built a platform that actually converts. Since launch, we've seen a noticeable improvement in engagement and user retention.",
+    a: "Team Unavo",
+    r: "Unavo",
+  },
+  {
+    q: "Working with Synad was seamless from start to finish. They understood our brand instantly and translated it into a website that feels both dynamic and intuitive. It's rare to find a team that balances creativity with performance this well.",
+    a: "Reelio Team",
+    r: "Reelio",
+  },
+  {
+    q: "Synad's marketing strategy gave our brand the clarity and direction it needed. From campaign execution to messaging, everything felt intentional and results-driven. We've seen stronger reach, better conversions, and a more defined brand presence.",
+    a: "Emerald Associates",
+    r: "Emerald",
+  },
 ];
 
 export default function Testimonials() {
