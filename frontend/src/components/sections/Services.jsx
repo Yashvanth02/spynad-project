@@ -114,14 +114,27 @@ export default function Services() {
                     src={s.image}
                     alt=""
                     className="h-full w-full object-cover transition-all duration-700"
+                    initial={{
+                      filter: "grayscale(1) contrast(1.25) saturate(0)",
+                      opacity: 0.7,
+                    }}
+                    whileInView={{
+                      filter: "grayscale(0) contrast(1) saturate(1.35)",
+                      opacity: 1,
+                    }}
+                    viewport={{ once: true, amount: 0.01 }}
                     animate={{
                       scale: hover === i ? 1.08 : 1,
-                      filter: hover === i ? "grayscale(0) contrast(1) saturate(1.35)" : "grayscale(1) contrast(1.25) saturate(0)",
-                      opacity: hover === i ? 1 : 0.7,
                     }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-opacity duration-700 group-hover:opacity-20" />
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"
+                    initial={{ opacity: 1 }}
+                    whileInView={{ opacity: 0.2 }}
+                    viewport={{ once: true, amount: 0.01 }}
+                    transition={{ duration: 0.7 }}
+                  />
                   <div className="absolute left-4 top-4 font-mono text-xs text-zinc-300">{s.n}</div>
                 </div>
 
