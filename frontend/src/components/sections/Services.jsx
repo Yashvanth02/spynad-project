@@ -25,23 +25,23 @@ const services = [
   },
   {
     n: "03",
-    title: "Portfolio Websites",
-    desc: "Editorial, immersive sites that turn your work into a statement.",
-    tags: ["Editorial", "Motion", "3D"],
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80",
-    detail: "For creators, studios and premium personal brands, we create expressive portfolio systems where case studies, motion and content direction do the selling.",
-    deliverables: ["Case study structure", "Motion-led storytelling", "Media-rich project pages", "Simple content updates", "Brand narrative", "Interactive visuals"],
-    stats: ["Editorial feel", "Motion detail", "Creator-ready"],
-  },
-  {
-    n: "04",
     title: "Custom Web Solutions",
     desc: "SaaS, dashboards, APIs & full-stack apps built end-to-end.",
     tags: ["React", "FastAPI", "DB"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80",
     detail: "When the product needs more than pages, we design and engineer full-stack web systems with clean interfaces, dependable APIs and launch-ready workflows.",
     deliverables: ["Product UX and dashboards", "API and database design", "Auth and user roles", "Deployment support", "Workflow automation", "Scaling infrastructure"],
     stats: ["Full-stack", "Scalable base", "Workflow-first"],
+  },
+  {
+    n: "04",
+    title: "Automation",
+    desc: "Replace Excel-heavy work with dashboards, alerts and clean business workflows.",
+    tags: ["Sheets", "Inventory", "GST"],
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80",
+    detail: "Many businesses still update monthly spends, inventory checks, purchase lists and GST write-off calculations manually in Excel. We turn those repeated tasks into simple automation systems that track, calculate and surface what needs action.",
+    deliverables: ["Monthly spend tracking", "Inventory low-stock alerts", "Purchase planning lists", "GST write-off calculations", "Excel and Sheets automation", "Business dashboards"],
+    stats: ["Less manual work", "Better visibility", "Action-ready"],
   },
 ];
 
@@ -78,7 +78,7 @@ export default function Services() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 md:mb-24">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 02 — Services</p>
-            <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.92] md:leading-[0.9]">
               What we<br />
               <span className="text-stroke">engineer</span>
             </h2>
@@ -96,25 +96,32 @@ export default function Services() {
               onClick={() => setOpen(s)}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)}
+              onBlur={() => setHover(null)}
+              onTouchStart={() => setHover(i)}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.8, delay: i * 0.05 }}
-              className="relative group overflow-hidden border border-white/10 bg-[#030303] p-4 text-left transition-colors hover:border-white/25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/70 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+              className="relative group overflow-hidden border border-white/10 bg-[#030303] p-3 sm:p-4 text-left transition-colors hover:border-white/25 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-white/70 focus-visible:ring-offset-4 focus-visible:ring-offset-black"
               data-testid={`service-row-${i}`}
               data-cursor="hover"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-[linear-gradient(135deg,rgba(255,255,255,0.10),transparent_36%)]" />
-              <div className="relative flex h-full min-h-[520px] flex-col">
+              <div className="relative flex h-full min-h-[460px] sm:min-h-[500px] lg:min-h-[520px] flex-col">
                 <div className="relative aspect-[4/3] overflow-hidden border border-white/10 bg-white/[0.03]">
                   <motion.img
                     src={s.image}
                     alt=""
-                    className="h-full w-full object-cover grayscale contrast-125 opacity-70 transition-all duration-700 group-hover:grayscale-0 group-hover:contrast-100 group-hover:opacity-100"
-                    animate={{ scale: hover === i ? 1.08 : 1 }}
+                    className="h-full w-full object-cover transition-all duration-700"
+                    animate={{
+                      scale: hover === i ? 1.08 : 1,
+                      filter: hover === i ? "grayscale(0) contrast(1) saturate(1.35)" : "grayscale(1) contrast(1.25) saturate(0)",
+                      opacity: hover === i ? 1 : 0.7,
+                    }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-opacity duration-700 group-hover:opacity-20" />
                   <div className="absolute left-4 top-4 font-mono text-xs text-zinc-300">{s.n}</div>
                 </div>
 
@@ -124,7 +131,7 @@ export default function Services() {
                       <motion.h3
                         animate={{ x: hover === i ? 8 : 0 }}
                         transition={{ type: "spring", stiffness: 200, damping: 20 }}
-                        className="font-display font-black text-3xl md:text-4xl tracking-tighter leading-[0.94]"
+                        className="font-display font-black text-[2rem] sm:text-3xl md:text-4xl tracking-tighter leading-[0.96]"
                       >
                         {s.title}
                       </motion.h3>
@@ -170,7 +177,7 @@ export default function Services() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[220] bg-black/85 backdrop-blur-2xl flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 z-[220] bg-black/85 backdrop-blur-2xl flex items-center justify-center overflow-hidden p-2 sm:p-4 md:p-8"
             onClick={() => setOpen(null)}
             data-testid="service-modal"
           >
@@ -180,20 +187,20 @@ export default function Services() {
               exit={{ opacity: 0, y: 24, scale: 0.97 }}
               transition={{ type: "spring", stiffness: 180, damping: 22 }}
               onClick={(event) => event.stopPropagation()}
-              className="relative w-full max-w-5xl h-[calc(100vh-2rem)] md:h-[680px] md:max-h-[calc(100vh-4rem)] overflow-hidden border border-white/15 bg-[#050505] shadow-[0_0_120px_rgba(255,255,255,0.08)]"
+              className="relative h-[calc(100dvh-1rem)] w-full max-w-5xl overflow-hidden border border-white/15 bg-[#050505] shadow-[0_0_120px_rgba(255,255,255,0.08)] sm:h-[calc(100dvh-2rem)] md:h-[680px] md:max-h-[calc(100vh-4rem)]"
               role="dialog"
               aria-modal="true"
               aria-labelledby="service-modal-title"
             >
               <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_20%_0%,rgba(255,255,255,0.12),transparent_32%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_38%)]" />
-              <div className="relative grid h-full min-h-0 md:grid-cols-12">
-                <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-white/10 p-6 md:p-8 lg:p-10 flex min-h-0 flex-col gap-8">
+              <div className="relative grid h-full min-h-0 grid-rows-[auto_1fr] md:grid-rows-1 md:grid-cols-12">
+                <div className="md:col-span-5 border-b md:border-b-0 md:border-r border-white/10 p-4 sm:p-5 md:p-8 lg:p-10 flex min-h-0 flex-col gap-3 sm:gap-4 md:gap-8">
                   <div className="flex items-center justify-between gap-4">
-                    <p className="text-xs tracking-[0.28em] uppercase text-zinc-500 font-bold font-mono">/ Service {open.n}</p>
+                    <p className="text-[10px] md:text-xs tracking-[0.24em] md:tracking-[0.28em] uppercase text-zinc-500 font-bold font-mono">/ Service {open.n}</p>
                     <button
                       type="button"
                       onClick={() => setOpen(null)}
-                      className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition-colors hover:bg-white hover:text-black"
+                      className="flex h-9 w-9 md:h-10 md:w-10 shrink-0 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white transition-colors hover:bg-white hover:text-black"
                       aria-label="Close service details"
                       data-testid="service-modal-close"
                     >
@@ -201,7 +208,7 @@ export default function Services() {
                     </button>
                   </div>
 
-                  <div className="aspect-[16/10] md:aspect-auto md:flex-1 md:min-h-0 overflow-hidden border border-white/10 bg-white/[0.03]">
+                  <div className="h-[28dvh] min-h-40 max-h-56 sm:min-h-48 md:h-auto md:aspect-auto md:flex-1 md:min-h-0 md:max-h-none overflow-hidden border border-white/10 bg-white/[0.03]">
                     <img
                       src={open.image}
                       alt={open.title}
@@ -210,12 +217,12 @@ export default function Services() {
                   </div>
 
                   <div>
-                    <h3 id="service-modal-title" className="font-display font-black text-4xl sm:text-5xl lg:text-6xl tracking-tighter leading-[0.92] mt-6">
+                    <h3 id="service-modal-title" className="font-display font-black text-2xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter leading-[0.94] mt-1 md:mt-6">
                       {open.title}
                     </h3>
-                    <div className="mt-6 flex flex-wrap gap-2">
+                    <div className="mt-3 md:mt-6 flex flex-wrap gap-2">
                       {open.tags.map((tag) => (
-                        <span key={tag} className="border border-white/15 px-3 py-2 text-xs font-mono text-zinc-300 uppercase tracking-[0.16em]">
+                        <span key={tag} className="border border-white/15 px-2.5 py-1.5 md:px-3 md:py-2 text-[10px] md:text-xs font-mono text-zinc-300 uppercase tracking-[0.14em] md:tracking-[0.16em]">
                           {tag}
                         </span>
                       ))}
@@ -223,35 +230,35 @@ export default function Services() {
                   </div>
                 </div>
 
-                <div className="md:col-span-7 p-6 md:p-8 lg:p-10 flex min-h-0 flex-col">
+                <div className="md:col-span-7 p-4 sm:p-5 md:p-8 lg:p-10 flex min-h-0 flex-col overflow-hidden">
                   <div>
-                    <p className="text-zinc-400 font-light text-base md:text-lg leading-relaxed">
+                    <p className="text-zinc-400 font-light text-sm md:text-lg leading-6 md:leading-relaxed">
                       {open.detail}
                     </p>
                   </div>
 
-                  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                  <div className="mt-4 md:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
                     {open.deliverables.map((item, index) => (
                       <motion.div
                         key={item}
                         initial={{ opacity: 0, y: 18 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 + index * 0.06 }}
-                        className="border border-white/10 bg-[#050505] p-6 h-32 flex items-center justify-center text-center"
+                        className="border border-white/10 bg-[#050505] p-2.5 md:p-6 min-h-14 md:h-32 flex items-center justify-center text-center"
                       >
-                        <p className="text-zinc-300 font-medium leading-tight">{item}</p>
+                        <p className="text-zinc-300 text-xs md:text-base font-medium leading-tight">{item}</p>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="mt-10 flex flex-col md:flex-row gap-5 md:items-center md:justify-between border-t border-white/10 pt-6">
-                    <p className="text-sm text-zinc-500 font-light max-w-md">
+                  <div className="mt-auto flex flex-col md:flex-row gap-3 md:gap-5 md:items-center md:justify-between border-t border-white/10 pt-3 md:pt-6">
+                    <p className="text-xs md:text-sm text-zinc-500 font-light max-w-md">
                       Want this built around your brand, product and launch goals?
                     </p>
                     <button
                       type="button"
                       onClick={goToContact}
-                      className="glow-btn shrink-0 bg-white text-black rounded-full px-7 py-4 font-semibold text-sm inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform"
+                      className="glow-btn shrink-0 bg-white text-black rounded-full px-5 md:px-7 py-3 md:py-4 font-semibold text-sm inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform"
                       data-testid="service-contact-button"
                     >
                       Contact us

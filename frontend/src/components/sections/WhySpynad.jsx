@@ -15,22 +15,22 @@ export default function WhySpynad() {
         <div className="grid md:grid-cols-12 gap-8 md:gap-16">
           <div className="md:col-span-5 md:sticky md:top-32 self-start">
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 04 — Why Spynad</p>
-            <h2 className="font-display font-black text-5xl md:text-6xl lg:text-7xl tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tighter uppercase leading-[0.92] md:leading-[0.9]">
               Built<br />different.
             </h2>
             <p className="mt-8 text-zinc-400 max-w-md font-light">
               We're the unreasonable partner your competitors wish they'd hired first. Small team, senior output, zero fluff.
             </p>
 
-            <div className="mt-12 grid grid-cols-3 gap-6">
+            <div className="mt-10 md:mt-12 grid grid-cols-3 gap-3 sm:gap-6">
               {[
                 { k: "4.9", l: "Avg. rating" },
                 { k: "60+", l: "Projects shipped" },
                 { k: "100%", l: "On-time launch" },
               ].map((m, i) => (
                 <div key={i}>
-                  <div className="font-display font-black text-3xl md:text-4xl">{m.k}</div>
-                  <div className="text-xs text-zinc-500 tracking-widest uppercase mt-1">{m.l}</div>
+                  <div className="font-display font-black text-2xl sm:text-3xl md:text-4xl">{m.k}</div>
+                  <div className="text-[10px] sm:text-xs text-zinc-500 tracking-widest uppercase mt-1 leading-tight">{m.l}</div>
                 </div>
               ))}
             </div>
@@ -44,7 +44,7 @@ export default function WhySpynad() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: i * 0.1 }}
-                className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-xl overflow-hidden hover:bg-white/[0.04] hover:border-white/20 transition-all"
+                className="group relative p-5 sm:p-8 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-xl overflow-hidden hover:bg-white/[0.04] hover:border-white/20 transition-all"
                 data-testid={`pillar-${i}`}
               >
                 <div className="absolute -top-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />

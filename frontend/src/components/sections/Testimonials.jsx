@@ -26,7 +26,7 @@ export default function Testimonials() {
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               exit={{ opacity: 0, y: -30, filter: "blur(8px)" }}
               transition={{ duration: 0.8 }}
-              className="font-display font-bold text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] max-w-5xl"
+              className="font-display font-bold text-2xl sm:text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.16] md:leading-[1.1] max-w-5xl"
               data-testid={`testimonial-${i}`}
             >
               &ldquo;{quotes[i].q}&rdquo;
@@ -36,10 +36,10 @@ export default function Testimonials() {
             <motion.div
               key={`a-${i}`}
               initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
-              className="mt-10 flex items-center gap-4 text-sm"
+              className="mt-8 md:mt-10 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm"
             >
               <div className="w-10 h-px bg-zinc-600" />
-              <span className="font-mono text-zinc-400">{quotes[i].a} — {quotes[i].r}</span>
+              <span className="font-mono text-zinc-400 leading-relaxed">{quotes[i].a} — {quotes[i].r}</span>
             </motion.div>
           </AnimatePresence>
         </div>

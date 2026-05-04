@@ -4,7 +4,7 @@ import { ArrowRight, Check, ChevronDown } from "lucide-react";
 import { toast } from "sonner";
 import MagneticButton from "@/components/MagneticButton";
 
-const PROJECT_TYPES = ["Business Website", "eCommerce Store", "Portfolio Website", "Custom Web App", "Social Media Marketing", "Logo & Poster Design", "Video Production"];
+const PROJECT_TYPES = ["Business Website", "eCommerce Store", "Custom Web App", "Automation", "Social Media Marketing", "Logo & Poster Design", "Video Production"];
 
 export default function Contact() {
   const [form, setForm] = useState({ name: "", email: "", phone: "", project_type: PROJECT_TYPES[0], message: "" });
@@ -49,7 +49,7 @@ export default function Contact() {
         <motion.h2
           initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="font-display font-black text-6xl md:text-8xl lg:text-[11vw] tracking-tighter uppercase leading-[0.88]"
+          className="font-display font-black text-[3.25rem] sm:text-6xl md:text-8xl lg:text-[11vw] tracking-tighter uppercase leading-[0.92] md:leading-[0.88]"
           data-testid="contact-headline"
         >
           Let's build<br />
@@ -57,7 +57,7 @@ export default function Contact() {
           <span className="text-stroke">people can't ignore.</span>
         </motion.h2>
 
-        <div className="mt-20 grid md:grid-cols-12 gap-12">
+        <div className="mt-12 md:mt-20 grid md:grid-cols-12 gap-10 md:gap-12">
           <div className="md:col-span-5">
             <p className="text-zinc-400 font-light max-w-sm">
               Tell us about your project. We reply within 24 hours with next steps, timeline & a ballpark.
@@ -69,8 +69,8 @@ export default function Contact() {
             </div>
           </div>
 
-          <form onSubmit={submit} className="md:col-span-7 space-y-8" data-testid="contact-form">
-            <div className="grid sm:grid-cols-2 gap-8">
+          <form onSubmit={submit} className="md:col-span-7 space-y-7 md:space-y-8" data-testid="contact-form">
+            <div className="grid sm:grid-cols-2 gap-7 md:gap-8">
               <div>
                 <label className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-mono">Your name</label>
                 <input className="input-line" value={form.name} onChange={update("name")} placeholder="Jane Doe" data-testid="contact-name" required />
@@ -81,7 +81,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-8">
+            <div className="grid sm:grid-cols-2 gap-7 md:gap-8">
               <div>
                 <label className="text-xs uppercase tracking-[0.2em] text-zinc-500 font-mono">Contact number</label>
                 <input type="tel" className="input-line" value={form.phone} onChange={update("phone")} placeholder="+91 98765 43210" data-testid="contact-phone" required />
@@ -104,7 +104,7 @@ export default function Contact() {
               type="submit"
               disabled={done}
               data-testid="contact-submit"
-              className="glow-btn bg-white text-black rounded-full px-10 py-5 font-semibold text-base disabled:opacity-60"
+              className="glow-btn w-full sm:w-auto justify-center bg-white text-black rounded-full px-8 sm:px-10 py-5 font-semibold text-base disabled:opacity-60"
             >
               {done ? "Sent ✓" : "Send the brief"}
               {!done && <ArrowRight size={18} />}

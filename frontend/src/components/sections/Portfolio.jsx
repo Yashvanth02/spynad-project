@@ -43,10 +43,10 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="relative py-5 md:py-7 bg-black" data-testid="portfolio-section">
       <div className="max-w-[1400px] mx-auto px-4 md:px-8 lg:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-2 mb-2">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 md:gap-2 mb-2">
           <div>
             <p className="text-xs tracking-[0.3em] uppercase text-zinc-500 font-bold font-mono mb-4">/ 05 — Projects</p>
-            <h2 className="font-display font-black text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.9]">
+            <h2 className="font-display font-black text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-tighter uppercase leading-[0.92] md:leading-[0.9]">
               Recent<br />
               <span className="text-stroke">ship-outs.</span>
             </h2>
@@ -74,18 +74,18 @@ export default function Portfolio() {
                   <img
                     src={p.image}
                     alt={p.title}
-                    className="w-full h-auto object-contain transition-transform duration-[1200ms] ease-out group-hover:scale-105 filter grayscale contrast-[1.05] group-hover:grayscale-0"
+                    className="w-full h-auto object-contain filter grayscale saturate-0 contrast-[1.05] transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:grayscale-0 group-hover:saturate-125 group-hover:contrast-100"
                   />
-                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors duration-500" />
+                  <div className="absolute inset-0 bg-black/30 transition-colors duration-500 group-hover:bg-black/0" />
                 </div>
-                <div className="relative flex flex-col justify-start items-start bg-black/95 p-6 md:p-8">
+                <div className="relative flex flex-col justify-start items-start bg-black/95 p-5 sm:p-6 md:p-8">
                   <div className="w-full">
                     <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-3 mb-5">
                       <span className="text-xs tracking-[0.2em] uppercase text-zinc-400 font-mono">{p.category}</span>
                       <span className="text-xs font-mono text-zinc-400">{p.year}</span>
                     </div>
                     <div className="flex items-start justify-between gap-4">
-                      <h3 className="font-display font-black text-4xl md:text-5xl tracking-tighter leading-none text-white">{p.title}</h3>
+                      <h3 className="font-display font-black text-3xl sm:text-4xl md:text-5xl tracking-tighter leading-none text-white">{p.title}</h3>
                       <motion.div
                         whileHover={{ rotate: 45 }}
                         className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
@@ -125,7 +125,7 @@ export default function Portfolio() {
         {open && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-xl flex items-center justify-center p-4"
+            className="fixed inset-0 z-[200] bg-black/80 backdrop-blur-xl flex items-start sm:items-center justify-center overflow-y-auto p-3 sm:p-4"
             onClick={() => setOpen(null)}
             data-testid="portfolio-modal"
           >
@@ -133,14 +133,15 @@ export default function Portfolio() {
               initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 40, opacity: 0 }}
               transition={{ type: "spring", stiffness: 180, damping: 24 }}
               onClick={(e) => e.stopPropagation()}
-              className="max-w-3xl w-full bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden"
+              className="my-4 max-w-3xl w-full bg-[#0a0a0a] border border-white/10 rounded-2xl overflow-hidden"
             >
-              <div className="relative aspect-[16/9] bg-cover bg-center" style={{ backgroundImage: `url(${open.image})`, filter: "grayscale(1)" }}>
+              <div className="relative aspect-[16/10] sm:aspect-[16/9] overflow-hidden bg-black">
+                <img src={open.image} alt={open.title} className="h-full w-full object-contain" />
                 <button onClick={() => setOpen(null)} className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 border border-white/20 flex items-center justify-center" data-testid="close-modal"><X size={16}/></button>
               </div>
-              <div className="p-8">
+              <div className="p-5 sm:p-8">
                 <p className="text-xs tracking-[0.2em] uppercase text-zinc-500 font-mono">{open.category} · {open.year}</p>
-                <h3 className="font-display font-black text-4xl md:text-5xl tracking-tighter mt-3">{open.title}</h3>
+                <h3 className="font-display font-black text-3xl sm:text-4xl md:text-5xl tracking-tighter mt-3">{open.title}</h3>
                 <p className="text-zinc-400 mt-4 font-light">{open.about}</p>
                 <button onClick={() => { setOpen(null); document.getElementById("contact")?.scrollIntoView({behavior:"smooth"}); }}
                   className="mt-8 bg-white text-black rounded-full px-6 py-3 font-semibold text-sm inline-flex items-center gap-2 hover:scale-105 transition-transform">
