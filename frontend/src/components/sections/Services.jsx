@@ -221,7 +221,7 @@ export default function Services() {
                     </button>
                   </div>
 
-                  <div className="h-[28dvh] min-h-40 max-h-56 sm:min-h-48 md:h-auto md:aspect-auto md:flex-1 md:min-h-0 md:max-h-none overflow-hidden border border-white/10 bg-white/[0.03]">
+                  <div className="h-[23dvh] min-h-32 max-h-44 sm:min-h-40 sm:max-h-52 md:h-auto md:aspect-auto md:flex-1 md:min-h-0 md:max-h-none overflow-hidden border border-white/10 bg-white/[0.03]">
                     <img
                       src={open.image}
                       alt={open.title}
@@ -245,33 +245,33 @@ export default function Services() {
 
                 <div className="md:col-span-7 p-4 sm:p-5 md:p-8 lg:p-10 flex min-h-0 flex-col overflow-hidden">
                   <div>
-                    <p className="text-zinc-400 font-light text-sm md:text-lg leading-6 md:leading-relaxed">
+                    <p className="text-zinc-400 font-light text-[13px] md:text-lg leading-5 md:leading-relaxed">
                       {open.detail}
                     </p>
                   </div>
 
-                  <div className="mt-4 md:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
+                  <div className="mt-3 md:mt-10 grid grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
                     {open.deliverables.map((item, index) => (
                       <motion.div
                         key={item}
                         initial={{ opacity: 0, y: 18 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 + index * 0.06 }}
-                        className="border border-white/10 bg-[#050505] p-2.5 md:p-6 min-h-14 md:h-32 flex items-center justify-center text-center"
+                        className="border border-white/10 bg-[#050505] p-2 md:p-6 min-h-12 md:h-32 flex items-center justify-center text-center"
                       >
-                        <p className="text-zinc-300 text-xs md:text-base font-medium leading-tight">{item}</p>
+                        <p className="text-zinc-300 text-[11px] md:text-base font-medium leading-tight">{item}</p>
                       </motion.div>
                     ))}
                   </div>
 
-                  <div className="mt-auto flex flex-col md:flex-row gap-3 md:gap-5 md:items-center md:justify-between border-t border-white/10 pt-3 md:pt-6">
-                    <p className="text-xs md:text-sm text-zinc-500 font-light max-w-md">
+                  <div className="mt-auto flex flex-col md:flex-row gap-2 md:gap-5 md:items-center md:justify-between border-t border-white/10 pt-2 md:pt-6">
+                    <p className="text-[11px] md:text-sm text-zinc-500 font-light max-w-md">
                       Want this built around your brand, product and launch goals?
                     </p>
                     <button
                       type="button"
                       onClick={goToContact}
-                      className="glow-btn shrink-0 bg-white text-black rounded-full px-5 md:px-7 py-3 md:py-4 font-semibold text-sm inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform"
+                      className="glow-btn shrink-0 bg-white text-black rounded-full px-5 md:px-7 py-2.5 md:py-4 font-semibold text-sm inline-flex items-center justify-center gap-2 whitespace-nowrap hover:scale-105 transition-transform"
                       data-testid="service-contact-button"
                     >
                       Contact us
