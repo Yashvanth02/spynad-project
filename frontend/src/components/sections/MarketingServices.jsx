@@ -6,7 +6,7 @@ const marketingServices = [
   {
     n: "01",
     title: "Social Media Marketing",
-    short: "Campaign strategy, content calendars and performance loops for brands that need attention to turn into demand.",
+    short: "Data-driven strategies and content that turn attention into engagement and conversions.",
     image: "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=80",
     tags: ["Strategy", "Content", "Growth"],
     detail: "We build social systems that make your brand easy to remember and hard to ignore: positioning, content pillars, posting rhythm, creative direction and performance review.",
@@ -16,9 +16,9 @@ const marketingServices = [
   {
     n: "02",
     title: "Logo & Poster Design",
-    short: "Identity marks, poster systems and campaign graphics shaped to feel sharp, memorable and premium.",
+    short: "Distinctive visuals and brand identities crafted to leave a lasting impression.",
     image: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80",
-    tags: ["Logo", "Posters", "Identity"],
+    tags: ["Branding", "Identity", "Creatives"],
     detail: "From a clean logo suite to launch posters and social-first graphics, we create visual systems that hold together across web, print, reels and campaigns.",
     grid: ["Logo directions", "Poster key visuals", "Social templates", "Brand usage kit", "Color and type system", "Export-ready assets"],
     signal: "Visual identity",
@@ -26,7 +26,7 @@ const marketingServices = [
   {
     n: "03",
     title: "Video Production",
-    short: "Scroll-stopping reels, brand films, product videos and motion edits designed for clarity, retention and marketing impact.",
+    short: "Impactful videos designed to capture attention, boost retention, and drive results.",
     image: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1200&q=80",
     tags: ["Reels", "Motion", "Editing"],
     detail: "We plan, edit and polish marketing video assets that give your product or brand a cinematic pulse, from fast social edits to launch films and explainers.",
@@ -36,9 +36,9 @@ const marketingServices = [
   {
     n: "04",
     title: "Campaign Creatives",
-    short: "Launch visuals, ad sets, landing-page assets and creative variations built around one clear conversion goal.",
+    short: "Performance-driven creatives built to convert across ads, funnels, and campaigns.",
     image: "https://images.unsplash.com/photo-1557838923-2985c318be48?w=1200&q=80",
-    tags: ["Ads", "Launch", "Funnels"],
+    tags: ["Ads", "Funnels", "Conversion"],
     detail: "We connect design, copy and motion into campaign packs that can move across Meta ads, Google placements, landing pages and launch announcements.",
     grid: ["Creative concepts", "Ad variations", "Landing assets", "Campaign messaging", "Format adaptations", "Launch asset pack"],
     signal: "Launch ready",

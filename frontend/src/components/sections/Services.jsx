@@ -6,8 +6,8 @@ const services = [
   {
     n: "01",
     title: "Business Websites",
-    desc: "High-converting marketing sites engineered for speed, SEO & scale.",
-    tags: ["CMS", "SEO", "Analytics"],
+    desc: "Conversion-focused websites built for speed, visibility, and scalable growth.",
+    tags: ["UI/UX", "SEO", "Performance"],
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80",
     detail: "We build sharp, conversion-focused websites for service brands, startups and B2B teams that need clarity, authority and measurable inbound growth.",
     deliverables: ["Brand-led UI system", "SEO-ready page architecture", "CMS editing flow", "Analytics and lead tracking", "Conversion optimization", "Performance and speed"],
@@ -16,8 +16,8 @@ const services = [
   {
     n: "02",
     title: "eCommerce Stores",
-    desc: "Shopify, custom & headless storefronts optimized to sell.",
-    tags: ["Shopify", "Stripe", "Headless"],
+    desc: "High-performing online stores engineered to maximize sales and user experience.",
+    tags: ["Shopify", "Headless", "Payments"],
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80",
     detail: "From polished Shopify builds to headless storefronts, we shape commerce experiences that make discovery, product education and checkout feel effortless.",
     deliverables: ["Product and collection UX", "Checkout and payment setup", "Campaign landing pages", "Conversion tracking", "Inventory & fulfillment flow", "Revenue analytics"],
@@ -26,8 +26,8 @@ const services = [
   {
     n: "03",
     title: "Custom Web Solutions",
-    desc: "SaaS, dashboards, APIs & full-stack apps built end-to-end.",
-    tags: ["React", "FastAPI", "DB"],
+    desc: "Tailored web apps, dashboards, and systems designed to solve real business problems.",
+    tags: ["SaaS", "APIs", "Full-Stack"],
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=80",
     detail: "When the product needs more than pages, we design and engineer full-stack web systems with clean interfaces, dependable APIs and launch-ready workflows.",
     deliverables: ["Product UX and dashboards", "API and database design", "Auth and user roles", "Deployment support", "Workflow automation", "Scaling infrastructure"],
@@ -36,8 +36,8 @@ const services = [
   {
     n: "04",
     title: "Automation",
-    desc: "Replace Excel-heavy work with dashboards, alerts and clean business workflows.",
-    tags: ["Sheets", "Inventory", "GST"],
+    desc: "Streamline operations with smart automation, real-time insights, and efficient workflows.",
+    tags: ["Workflows", "Dashboards", "Systems"],
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&q=80",
     detail: "Many businesses still update monthly spends, inventory checks, purchase lists and GST write-off calculations manually in Excel. We turn those repeated tasks into simple automation systems that track, calculate and surface what needs action.",
     deliverables: ["Monthly spend tracking", "Inventory low-stock alerts", "Purchase planning lists", "GST write-off calculations", "Excel and Sheets automation", "Business dashboards"],
