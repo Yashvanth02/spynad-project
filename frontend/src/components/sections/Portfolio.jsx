@@ -81,23 +81,15 @@ export default function Portfolio() {
                     src={p.image}
                     alt={p.title}
                     className="w-full h-auto object-contain"
-                    initial={{
-                      filter: "grayscale(1) contrast(1.05) saturate(0)",
-                    }}
-                    whileInView={{
-                      filter: "grayscale(0) contrast(1) saturate(1.35)",
-                    }}
-                    viewport={{ once: true, amount: 0.01 }}
                     animate={{
+                      filter: hover === i ? "grayscale(0) contrast(1) saturate(1.35)" : "grayscale(1) contrast(1.05) saturate(0)",
                       scale: hover === i ? 1.05 : 1,
                     }}
                     transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                   />
                   <motion.div
                     className="absolute inset-0 bg-black"
-                    initial={{ opacity: 0.3 }}
-                    whileInView={{ opacity: 0 }}
-                    viewport={{ once: true, amount: 0.01 }}
+                    animate={{ opacity: hover === i ? 0 : 0.3 }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>

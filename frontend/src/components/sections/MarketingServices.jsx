@@ -117,25 +117,16 @@ export default function MarketingServices() {
                       src={service.image}
                       alt=""
                       className="h-full w-full object-cover transition-all duration-700"
-                      initial={{
-                        filter: "grayscale(1) contrast(1.25) saturate(0)",
-                        opacity: 0.75,
-                      }}
-                      whileInView={{
-                        filter: "grayscale(0) contrast(1) saturate(1.35)",
-                        opacity: 1,
-                      }}
-                      viewport={{ once: true, amount: 0.01 }}
                       animate={{
+                        filter: hover === index ? "grayscale(0) contrast(1) saturate(1.35)" : "grayscale(1) contrast(1.25) saturate(0)",
+                        opacity: hover === index ? 1 : 0.75,
                         scale: hover === index ? 1.08 : 1,
                       }}
                       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                     />
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"
-                      initial={{ opacity: 1 }}
-                      whileInView={{ opacity: 0.2 }}
-                      viewport={{ once: true, amount: 0.01 }}
+                      animate={{ opacity: hover === index ? 0.2 : 1 }}
                       transition={{ duration: 0.7 }}
                     />
                     <div className="absolute left-4 top-4 font-mono text-xs text-zinc-300">{service.n}</div>
